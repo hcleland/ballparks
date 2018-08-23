@@ -6,5 +6,9 @@ Rails.application.routes.draw do
     get "/ballparks/:id" => "ballparks#show"
 
     post "/ratings" => "ratings#create"
+
+    post "/users" => "users#create"
+
+    post "/sessions" => "sessions#create"
   end
 end

@@ -1,6 +1,8 @@
 class Api::RatingsController < ApplicationController
   def create
     @rating = Rating.new(
+      ballpark_id: 3,
+      user_id: current_user.id,
       stadium: params[:stadium],
       seats: params[:seats],
       concessions: params[:concessions],
@@ -8,7 +10,7 @@ class Api::RatingsController < ApplicationController
       location: params[:location],
       notes: params[:notes]
     )
-    @rating.save
+    @rating.save!
     render "show.json.jbuilder"
   end
 end

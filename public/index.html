@@ -21,17 +21,6 @@
   <div class="container">
   <div id="vue-app">
 
-    <!-- <iframe src="https://makeaclickablemap.com/map_responsive.php?e5120c06760920bb3993d8ad73251d7604a2af96" frameborder="0" scrolling="no" height="720" width="960"></iframe> -->
-<!-- <div id="map">
-    <fusioncharts
-        :type="type"
-        :width="width"
-        :height="height"
-        :dataFormat="dataFormat"
-        :dataSource="dataSource">
-    </fusioncharts>
-</div> -->
-
 
 
 
@@ -44,13 +33,17 @@
 
 <template id="home-page">
   <div class="vue-component">
+  <div>
+    <h1>Major League Baseball Stadiums</h1>
+    <iframe width="660" height="420" scrolling="no" frameborder="yes" src="https://fusiontables.google.com/embedviz?q=select+col4+from+1CicunBixzyvcO0NevSTYvbzpjhZ0XjZyNTR2-Stw&amp;viz=MAP&amp;h=false&amp;lat=38.884486&amp;lng=-96.857417&amp;t=1&amp;z=4&amp;l=col4&amp;y=2&amp;tmplt=2&amp;hml=GEOCODABLE"></iframe>
+  </div>
     <div v-for="ballpark in ballparks">
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" v-bind:src="ballpark.logo" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{ ballpark.market }} {{ ballpark.team_name }}</h5>
           <p class="card-text">{{ ballpark.name }}</p>
-        <a v-bind:href="'/#/ratings/?' + 'ballpark_id=' + ballpark.id" class="btn btn-primary" v-on:click="submit(ballpark)">Rate this Ballpark</a>
+        <a v-bind:href="'/#/ratings/?' + 'ballpark_id=' + ballpark.id + '&' + 'ballpark_name=' + ballpark.name + '&' + 'ballpark_logo=' + ballpark.logo" class="btn btn-primary" v-on:click="submit(ballpark)">Rate this Ballpark</a>
       </div>
     </div>
   </div>
@@ -59,13 +52,26 @@
 <template id="ratings-page">
   <div class="vue-component">
     <div class="container">
-      <a href="/#/signup">Signup</a>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+<!--   <p>{{ this.$route.query.ballpark.team_name }}</p> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/#/signup">Signup</a>
+      <a class="nav-item nav-link" href="/#/login">Login</a>
+      <a class="nav-item nav-link" href="/#/logout">Logout</a>
+    </div>
+  </div>
+</nav>
+<!--       <a href="/#/signup">Signup</a>
       <a href="/#/login">Login</a>
-      <a href="/#/logout">Logout</a>
-      <h1>rate the ballpark</h1>
-<!--  <ul>
-        <li class="text-danger" v-for="error in errors">{{ error }}</li>
-      </ul> -->
+      <a href="/#/logout">Logout</a> -->
+      <h2>Rate Your Experience at {{ this.$route.query.ballpark_name }}</h2>
+      {{ this.$route.query.ballpark_logo }}
+
 
 <!-- Default inline 1-->
  <div><label>Stadium:</label>
@@ -95,13 +101,30 @@
   <input type="radio" class="custom-control-input" id="defaultInline5" name="inlineDefaultRadiosExample">
   <label class="custom-control-label" for="defaultInline5">5</label>
 </div> -->
+<!-- <div class="field">
+  <label><strong>Is JavaScript awesome?</strong></label>
+  <div class="control">
+    <label class="radio">
+      <input v-model="form.js_awesome" type="radio" value="Yes">
+      Yes
+    </label>
+    <label class="radio">
+      <input v-model="form.js_awesome" type="radio" value="Yeap!">
+      Yeap!
+    </label>
+  </div>
+</div> -->
 
-      <label>Stadium:</label>
-      <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" class="custom-control-input" v-model="stadium" name="stadium">
-        <label class="custom-control-label" for="defaultInline5">5</label>
 
-      </div>
+<!-- <div class="field">
+  <label>Stadium:</label>
+  <div class="control">
+  <label class="radio">
+      <input v-model="stadium" type="radio" value=1>
+      1
+    </label>
+  </div>
+</div> -->
 
       <div class="form-group">
         <label>Stadium:</label>

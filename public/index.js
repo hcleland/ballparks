@@ -25,7 +25,7 @@ var RatingsPage = {
     submit: function() {
       console.log('in the submit function for new ratings')
       var params = {
-        // ballpark_id: this.$route.query.ballpark_id,
+        ballpark_id: this.$route.query.ballpark_id,
         stadium: this.stadium,
         seats: this.seats,
         concessions: this.concessions,
@@ -150,8 +150,7 @@ var router = new VueRouter({
     { path: "/ratings/", component: RatingsPage },
     { path: "/signup/", component: SignupPage },
     { path: "/login/", component: LoginPage },
-    { path: "/logout/", component: LogoutPage },
-    { path: "/map/", component: Map }
+    { path: "/logout/", component: LogoutPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

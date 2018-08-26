@@ -46,16 +46,16 @@
 # ballpark.update({market: "San Diego", team_name: "Padres", league: "National", logo: "https://www.logolynx.com/images/logolynx/s_60/6050a7f305319d234dcbfdfee3b58ff3.jpeg"})
 # ballpark.save
 
-ballpark = Ballpark.find_by(id: "2")
-ballpark.update({market: "New York", team_name: "Mets", league: "National", logo: "https://www.logolynx.com/images/logolynx/s_64/64f1c4b86d25933ba2023b39b558a496.jpeg"})
-ballpark.save
+# ballpark = Ballpark.find_by(id: "2")
+# ballpark.update({market: "New York", team_name: "Mets", league: "National", logo: "https://www.logolynx.com/images/logolynx/s_64/64f1c4b86d25933ba2023b39b558a496.jpeg"})
+# ballpark.save
 
 # ballpark = Ballpark.find_by(id: "3")
 # ballpark.update({market: "Cleveland", team_name: "Indians", league: "American", logo: "https://images.homedepot-static.com/productImages/787b7127-5b07-4517-84cc-6ad3f4d5ca1a/svn/red-fanmats-area-rugs-18133-64_1000.jpg"})
 # ballpark.save
 
 # ballpark = Ballpark.find_by(id: "4")
-# ballpark.update({market: "San Francisco", team_name: "Giants", league: "National", logo: "http://www.sierranevadaconservation.org/wp-content/uploads/2018/04/san-francisco-giants-logo-roundel-mat-27-round-area-rug.jpg"})
+# ballpark.update({name: "AT & T", market: "San Francisco", team_name: "Giants", league: "National", logo: "http://www.sierranevadaconservation.org/wp-content/uploads/2018/04/san-francisco-giants-logo-roundel-mat-27-round-area-rug.jpg"})
 # ballpark.save
 
 # ballpark = Ballpark.find_by(id: "5")

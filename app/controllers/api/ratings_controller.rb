@@ -1,7 +1,7 @@
 class Api::RatingsController < ApplicationController
   def create
     @rating = Rating.new(
-      ballpark_id: 3,
+      ballpark_id: params[:ballpark_id],
       user_id: current_user.id,
       stadium: params[:stadium],
       seats: params[:seats],

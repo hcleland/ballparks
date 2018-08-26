@@ -1,4 +1,4 @@
-
+// USe the Vue.use() global method
 var RatingsPage = {
   template: "#ratings-page",
   data: function() {
@@ -17,7 +17,7 @@ var RatingsPage = {
     console.log('in the created');
     axios.get('/api/ballparks').then(function(response) {
       console.log(response.data);
-      console.log("in the callback for places index");
+      console.log("in the callback for index");
       this.ballparks = response.data.ballparks;
     }.bind(this));
   },
@@ -25,7 +25,7 @@ var RatingsPage = {
     submit: function() {
       console.log('in the submit function for new ratings')
       var params = {
-        // ballpark: this.ballpark,
+        // ballpark_id: this.$route.query.ballpark_id,
         stadium: this.stadium,
         seats: this.seats,
         concessions: this.concessions,
@@ -33,21 +33,15 @@ var RatingsPage = {
         location: this.location,
         notes: this.notes
       };
-      console.log(params)
+      console.log(params);
       axios
         .post("/api/ratings", params)
         .then(function(response) {
           console.log(response);
           router.push("/");
         })
-        // .catch(
-        //   function(error) {
-        //     this.errors = error.response.data.errors;
-        //     console.log(this.errors);
-        //   }.bind(this)
-        // );
     }
-  }
+  } 
 };
 
 var HomePage = {
@@ -156,7 +150,8 @@ var router = new VueRouter({
     { path: "/ratings/", component: RatingsPage },
     { path: "/signup/", component: SignupPage },
     { path: "/login/", component: LoginPage },
-    { path: "/logout/", component: LogoutPage }
+    { path: "/logout/", component: LogoutPage },
+    { path: "/map/", component: Map }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

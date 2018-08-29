@@ -8,5 +8,5 @@ class Api::BallparksController < ApplicationController
   ballpark_id = params[:id]
   @ballpark = Ballpark.find(ballpark_id)
   render "show.json.jbuilder"
-end
+  end
 end

@@ -21,9 +21,6 @@
   <div class="container">
   <div id="vue-app">
 
-
-
-
     <router-view></router-view>
 
   </div>
@@ -33,30 +30,11 @@
 
 <template id="home-page">
   <div class="vue-component">
-  <div>
-    <h1>Major League Baseball Stadiums</h1>
-    <iframe width="660" height="420" scrolling="no" frameborder="yes" src="https://fusiontables.google.com/embedviz?q=select+col4+from+1CicunBixzyvcO0NevSTYvbzpjhZ0XjZyNTR2-Stw&amp;viz=MAP&amp;h=false&amp;lat=38.884486&amp;lng=-96.857417&amp;t=1&amp;z=4&amp;l=col4&amp;y=2&amp;tmplt=2&amp;hml=GEOCODABLE"></iframe>
-  </div>
-    <div v-for="ballpark in ballparks">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" v-bind:src="ballpark.logo" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{ ballpark.market }} {{ ballpark.team_name }}</h5>
-          <p class="card-text">{{ ballpark.name }}</p>
-        <a v-bind:href="'/#/ratings/?' + 'ballpark_id=' + ballpark.id + '&' + 'ballpark_name=' + ballpark.name + '&' + 'ballpark_logo=' + ballpark.logo" class="btn btn-primary" v-on:click="submit(ballpark)">Rate this Ballpark</a>
-      </div>
-    </div>
-  </div>
-</template>
 
-<template id="ratings-page">
-  <div class="vue-component">
-    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-<!--   <p>{{ this.$route.query.ballpark.team_name }}</p> -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
@@ -66,94 +44,92 @@
     </div>
   </div>
 </nav>
-<!--       <a href="/#/signup">Signup</a>
-      <a href="/#/login">Login</a>
-      <a href="/#/logout">Logout</a> -->
-      <h2>Rate Your Experience at {{ this.$route.query.ballpark_name }}</h2>
-      {{ this.$route.query.ballpark_logo }}
 
+    <div>
+      <h1>Major League Baseball Stadiums</h1>
 
-<!-- Default inline 1-->
- <div><label>Stadium:</label>
-<div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample">
-  <label class="custom-control-label" for="defaultInline1">1</label>
-</div>
+      <!-- Map -->
+      <iframe width="660" height="420" scrolling="no" frameborder="yes" src="https://fusiontables.google.com/embedviz?q=select+col4+from+1CicunBixzyvcO0NevSTYvbzpjhZ0XjZyNTR2-Stw&amp;viz=MAP&amp;h=false&amp;lat=38.884486&amp;lng=-96.857417&amp;t=1&amp;z=4&amp;l=col4&amp;y=2&amp;tmplt=2&amp;hml=GEOCODABLE"></iframe>
+      <!-- Map -->
+    </div>
 
-<!--  Default inline 2 -->
-<div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
-  <label class="custom-control-label" for="defaultInline2">2</label>
-</div>
-
-<!-- Default inline 3
-<div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample">
-  <label class="custom-control-label" for="defaultInline3">3</label>
-</div>
-
-<div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" class="custom-control-input" id="defaultInline4" name="inlineDefaultRadiosExample">
-  <label class="custom-control-label" for="defaultInline4">4</label>
-</div>
-
-<div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" class="custom-control-input" id="defaultInline5" name="inlineDefaultRadiosExample">
-  <label class="custom-control-label" for="defaultInline5">5</label>
-</div> -->
-<!-- <div class="field">
-  <label><strong>Is JavaScript awesome?</strong></label>
-  <div class="control">
-    <label class="radio">
-      <input v-model="form.js_awesome" type="radio" value="Yes">
-      Yes
-    </label>
-    <label class="radio">
-      <input v-model="form.js_awesome" type="radio" value="Yeap!">
-      Yeap!
-    </label>
-  </div>
-</div> -->
-
-
-<!-- <div class="field">
-  <label>Stadium:</label>
-  <div class="control">
-  <label class="radio">
-      <input v-model="stadium" type="radio" value=1>
-      1
-    </label>
-  </div>
-</div> -->
-
-      <div class="form-group">
-        <label>Stadium:</label>
-        <input type="integer" class="form-control" v-model="stadium">
+    <h3>American</h3>
+    <div v-for="ballpark in ballparks">
+      <div v-if="ballpark.league === 'American'">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" v-bind:src="ballpark.logo" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ ballpark.market }} {{ ballpark.team_name }}</h5>
+            <p class="card-text">{{ ballpark.name }} {{ ballpark.league }}</p>
+            <a v-bind:href="'/#/ratings/?' + 'ballpark_id=' + ballpark.id + '&' + 'ballpark_name=' + ballpark.name + '&' + 'ballpark_logo=' + ballpark.logo" class="btn btn-primary" v-on:click="submit(ballpark)">Rate this Ballpark</a>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Seats:</label>
-        <input type="integer" class="form-control" v-model="seats">
+    </div>
+
+    <h3>National</h3>
+    <div v-for="ballpark in ballparks">
+      <div v-if="ballpark.league === 'National'">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" v-bind:src="ballpark.logo" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ ballpark.market }} {{ ballpark.team_name }}</h5>
+            <p class="card-text">{{ ballpark.name }} {{ ballpark.league }}</p>
+            <a v-bind:href="'/#/ratings/?' + 'ballpark_id=' + ballpark.id + '&' + 'ballpark_name=' + ballpark.name + '&' + 'ballpark_logo=' + ballpark.logo" class="btn btn-primary" v-on:click="submit(ballpark)">Rate this Ballpark</a>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Concessions:</label>
-        <input type="integer" class="form-control" v-model="concessions">
-      </div>
-      <div class="form-group">
-        <label>Amenities:</label>
-        <input type="integer" class="form-control" v-model="amenities">
-      </div>
-      <div class="form-group">
-        <label>Location:</label>
-        <input type="integer" class="form-control" v-model="location">
-      </div>
-      <div class="form-group">
-        <label>Notes:</label>
-        <input type="text" class="form-control" v-model="notes">
-      </div>
-      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div>
 
   </div>
+
+
+</template>
+
+<template id="ratings-page">
+  <div class="vue-component">
+    <div class="container">
+
+
+
+  <div>  
+    <div class="row">
+      <div class="col-md-2"><img width=100 height=100 v-bind:src="this.$route.query.ballpark_logo" alt="Card image cap"></div>
+      <div class="col-md-10"><h2>Rate Your Experience at {{ this.$route.query.ballpark_name }}</h2></div>
+    </div>
+
+    <div class="form-group">
+      <div class="container">
+        <p></p>
+      <label for="stadium">How would you describe the stadium?</label>
+      <input type="text" textarea class="form-control" rows="3" v-model="stadium"></textarea>
+        <p></p>
+      <label for="seats">How was the view from your seats?</label>
+      <input type="text" textarea class="form-control" rows="3" v-model="seats"></textarea>
+        <p></p>
+      <label for="concessions">What were some of your favorites from the concessions?</label>
+      <input type="text" textarea class="form-control" rows="3" v-model="concessions"></textarea>
+        <p></p>
+      <label for="amenities">What were some amenities offered at the ballpark?</label>
+      <input type="text" textarea class="form-control" rows="3" v-model="amenities"></textarea>
+        <p></p>
+      <label for="location">What is the location of the stadium like?</label>
+      <input type="text" textarea class="form-control" rows="3" v-model="location"></textarea>
+        <p></p>
+      <label for="notes">Notes to self:</label>
+      <input type="text" textarea class="form-control" rows="3" v-model="Notes"></textarea>
+      </div>
+
+      <div class="container">
+        <p></p>
+        <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</div>
 </template>
 
 <template id="signup-page">

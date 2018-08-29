@@ -63,7 +63,7 @@ var HomePage = {
   methods: {
     submit: function(ballpark) {
       this.ballpark = ballpark;
-    }
+    },
   },
   computed: {}
 };
@@ -121,7 +121,7 @@ var LoginPage = {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
-          router.push("/ratings");
+          router.push("/");
         })
         .catch(
           function(error) {

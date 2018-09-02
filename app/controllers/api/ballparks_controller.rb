@@ -1,6 +1,6 @@
 class Api::BallparksController < ApplicationController
   def index
-    @ballparks = Ballpark.all
+    @ballparks = Ballpark.order('team_name ASC')
     render "index.json.jbuilder"
   end
 

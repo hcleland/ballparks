@@ -1,4 +1,9 @@
 class Api::RatingsController < ApplicationController
+  def index
+    @ratings = current_user.ratings
+    render 'index.json.jbuilder'
+  end
+
   def create
     @rating = Rating.new(
       ballpark_id: params[:ballpark_id],

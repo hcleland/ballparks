@@ -55,7 +55,7 @@
 # ballpark.save
 
 # ballpark = Ballpark.find_by(id: "4")
-# ballpark.update({name: "AT & T", market: "San Francisco", team_name: "Giants", league: "National", logo: "http://www.sierranevadaconservation.org/wp-content/uploads/2018/04/san-francisco-giants-logo-roundel-mat-27-round-area-rug.jpg"})
+# ballpark.update({name: "AT & T Park", market: "San Francisco", team_name: "Giants", league: "National", logo: "http://www.sierranevadaconservation.org/wp-content/uploads/2018/04/san-francisco-giants-logo-roundel-mat-27-round-area-rug.jpg"})
 # ballpark.save
 
 # ballpark = Ballpark.find_by(id: "5")

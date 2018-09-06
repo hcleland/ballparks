@@ -327,11 +327,11 @@
       <div data-animate="fadeIn" data-animate-duration="0.6">
         <hr class="hr-lg mt-0 mb-3 w-10 mx-auto hr-primary" />
         <h2 class="text-center text-uppercase font-weight-bold my-0">
-          30 Stadiums
+          30 Ballparks - 30 Unique Experiences
         </h2>
-        <h5 class="text-center font-weight-light mt-2 mb-0 text-muted">
-          30 Unique Experiences to Rate!
-        </h5>
+        <h4 class="text-center font-weight-light mt-2 mb-0 text-muted">
+          Rate different aspects of the ballpark
+        </h4>
         <hr class="mb-5 w-50 mx-auto" />
       </div>
       <div class="row text-center">
@@ -340,7 +340,7 @@
           <h4 class="mt-2">
             Stadium
           </h4>
-          <p>New Stadium? Landmark Stadium? What's the ballpark like?</p>
+          <p>New Stadium? Historic Stadium? What makes the stadium unique?</p>
         </div>
         <div class="col-lg-4 py-2" data-animate="fadeIn" data-animate-delay="0.2">
           <img src="seats.svg" width="100" height="100"></i> 
@@ -354,29 +354,30 @@
           <h4 class="mt-2">
             Concessions
           </h4>
-          <p>Food. Drink. No visit is complete without stadium food!</p>
+          <p>No visit is complete with stadium food!  What's the best the stadium has to offer?</p>
         </div>
         <div class="col-lg-4 py-2" data-animate="fadeIn" data-animate-delay="0.4">
           <img src="amenities.svg" width="100" height="100"></i> 
           <h4 class="mt-2">
-            Extras
+            Amenities
           </h4>
-          <p>Conventio hendrerit occuro tego. Dolor genitus haero macto neo occuro quadrum vulpes.</p>
+          <p>What fun activities are available while you're at the ballpark?</p>
         </div>
         <div class="col-lg-4 py-2" data-animate="fadeIn" data-animate-delay="0.5">
           <img src="location.svg" width="100" height="100"></i> 
           <h4 class="mt-2">
             Location
           </h4>
-          <p>Abdo enim ibidem immitto loquor sit tum valde validus velit.</p>
+          <p>Close to the water?  Middle of downtown?  What's the area around the stadium like?</p>
         </div>
         <div class="col-lg-4 py-2" data-animate="fadeIn" data-animate-delay="0.6">
           <img src="notes.svg" width="100" height="100"></i> 
           <h4 class="mt-2">
             Notes
           </h4>
-          <p>Aptent augue brevitas. Ea esse eum gravis haero in loquor nibh rusticus volutpat.</p>
+          <p>Include any special notes or memories.</p>
         </div>
+        <hr class="hr-lg mt-0 mb-3 w-10 mx-auto hr-primary" />
       </div>
     </div>
 
@@ -787,6 +788,13 @@
           <h4>What is the location of the stadium like?</h4>
           <div class v-for="rating in ratings"> 
             <p>--{{ rating.location }}</p>
+          </div>
+        </div>
+
+        <div class="container">
+          <h4>Notes to Self</h4>
+          <div class v-for="rating in ratings"> 
+            <p>--{{ rating.notes }}</p>
           </div>
         </div>
 

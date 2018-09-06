@@ -6,6 +6,7 @@ var RatingsIndexPage = {
     return {
       message: "Welcome to Vue.js!",
       ratings: [],
+      ballparks: [],
       userName: ""
     };
   },
